@@ -48,6 +48,7 @@ import MultitouchSupport
     let isTouchStart = nFingers > 0 && handler.touchStartTime == nil
     if isTouchStart {
       handler.touchStartTime = Date()
+      state.clickedDuringTouch = false
       handler.maybeMiddleClick = true
       handler.middleClickPos1 = .zero
     } else if handler.maybeMiddleClick, let touchStartTime = handler.touchStartTime {
@@ -108,6 +109,7 @@ import MultitouchSupport
     let elapsedTime = -startTime.timeIntervalSinceNow
     touchStartTime = nil
 
+    guard !GlobalState.shared.clickedDuringTouch else { return }
     guard middleClickPos1.isNonZero && elapsedTime <= Self.maxTimeDelta else { return }
 
     let delta = middleClickPos1.delta(to: middleClickPos2)

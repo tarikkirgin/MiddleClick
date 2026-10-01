@@ -91,7 +91,7 @@ To bring it back — just open MiddleClick again while it's already running.
 - **Note:** setting `fingers` to `2` will conflict with normal two-finger right-clicks and single-finger clicks.
 
 ```ps1
-defaults write art.ginzburg.MiddleClick fingers 4
+defaults write com.tarikkirgin.MiddleClick fingers 4
 ```
 
 > Default is 3
@@ -102,7 +102,7 @@ defaults write art.ginzburg.MiddleClick fingers 4
 - Unfortunately, this does not serve as a palm rejection technique for huge touchpads.
 
 ```ps1
-defaults write art.ginzburg.MiddleClick allowMoreFingers true
+defaults write com.tarikkirgin.MiddleClick allowMoreFingers true
 ```
 
 > Default is false, so that the number of fingers is precise
@@ -115,7 +115,7 @@ defaults write art.ginzburg.MiddleClick allowMoreFingers true
 - The position is normalized and values go from 0 to 1.
 
 ```ps1
-defaults write art.ginzburg.MiddleClick maxDistanceDelta 0.03
+defaults write com.tarikkirgin.MiddleClick maxDistanceDelta 0.03
 ```
 
 > Default is 0.05
@@ -125,7 +125,7 @@ defaults write art.ginzburg.MiddleClick maxDistanceDelta 0.03
 - The maximum interval in milliseconds between touch and release for a tap to be considered valid.
 
 ```ps1
-defaults write art.ginzburg.MiddleClick maxTimeDelta 150
+defaults write com.tarikkirgin.MiddleClick maxTimeDelta 150
 ```
 
 > Default is 300

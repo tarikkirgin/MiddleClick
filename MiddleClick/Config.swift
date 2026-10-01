@@ -18,5 +18,9 @@ final class Config: ConfigCore {
 
   @UserDefault var tapToClick = SystemPermissions.getIsSystemTapToClickEnabled
 
+  /// When false, physical clicks are left alone (e.g. two-finger click stays a right click)
+  /// and only taps produce a middle click.
+  @UserDefault var emulateOnClick = true
+
   @UserDefault var ignoredAppBundles = Set<String>()
 }

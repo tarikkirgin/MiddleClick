@@ -1,4 +1,19 @@
-all: archive export compress
+all: app
+
+## Local build: ad-hoc signed, no Apple certificate needed.
+## Output: ./build/MiddleClick.app
+.PHONY: app release
+app:
+	xcodebuild -project MiddleClick.xcodeproj -scheme MiddleClick -configuration Release \
+		-derivedDataPath ./build/derived \
+		CODE_SIGN_IDENTITY="-" DEVELOPMENT_TEAM="" CODE_SIGN_STYLE=Manual \
+		build
+	rm -rf ./build/MiddleClick.app
+	cp -R ./build/derived/Build/Products/Release/MiddleClick.app ./build/MiddleClick.app
+	@echo "Built ./build/MiddleClick.app"
+
+## Maintainer-style signed release (needs a Developer ID certificate)
+release: archive export compress
 
 ## Development targets
 .PHONY: run force-build clean-build
